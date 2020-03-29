@@ -1,4 +1,4 @@
-package edu.elsmancs.EnumTypes.domain;
+package edu.elsmancs.EnumTypes;
 
 import edu.elsmancs.EnumTypes.domain.Planeta;
 
