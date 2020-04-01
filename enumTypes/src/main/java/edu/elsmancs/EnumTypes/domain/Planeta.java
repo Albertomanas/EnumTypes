@@ -38,6 +38,36 @@ public enum Planeta {
         return this.radio;
     }
 
+    public double pesoSuperficie(double peso){
+        return tu_masa(peso) * this.gravedadSuperficial();
+    }
 
+    public double tu_masa(double peso) {
+        return peso / this.gravedadSuperficial(EARTH);
+    }
+
+
+    public double gravedadSuperficial() {
+        return G * this.masa / (this.radio * this.radio);
+    }
+
+    /**Necesario hacer gravedadSuperficial de planeta para obtener EARTH para calcular tu_masa
+     *
+     * @param planeta
+     * @return
+     */
+
+    public double gravedadSuperficial(Planeta planeta) {
+        return G * planeta.getMasa() / (planeta.getRadio() * planeta.getRadio());
+    }
+
+    //Pag 724
+    public static EnumSet<Planeta> getPlanetasTerrestres() {
+        return EnumSet.range(Planeta.MERCURY, Planeta.MARS);
+    }
+
+    //Rangos, pag 724 (allOf, range, complementOf)
+    public static EnumSet<Planeta> getGigantesGaseosos(){
+        return EnumSet.complementOf(getPlanetasTerrestres());
     }
 }
